@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Bookshelf Apps</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bookshelf Apps</h1>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="input-book">
+          <form id="formAddBook">
+            <h2>Tambah Buku</h2>
+            <div class="input">
+              <label>Judul Buku</label>
+              <input type="text" name="bookTitle" id="bookTitle" required />
+            </div>
+            <div class="input">
+              <label>Penulis</label>
+              <input type="text" name="bookWriter" id="bookWriter" required />
+            </div>
+            <div class="input">
+              <label>Tahun</label>
+              <input type="number" name="bookYear" id="bookYear" required />
+            </div>
+            <div class="input-inline">
+              <input type="checkbox" name="bookFinish" id="bookFinish" />
+              <label> Tandai selesai baca</label>
+            </div>
+            <div class="input">
+              <button type="submit">Tambahkan Buku</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Daftar Buku</h2>
+
+        <div class="bookList">
+          <h3>Lagi dibaca</h3>
+          <div class="progressBook"></div>
+        </div>
+
+        <div class="bookList">
+          <h3>Selesai dibaca</h3>
+          <div class="finishBook"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #202020;
+  background-color: #4bb4de;
+}
+header {
+  padding: 0.8rem 2.5rem;
+  top: 0;
+}
+header h1 {
+  text-align: center;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  display: block;
+  max-width: 1248px;
+  width: 100%;
+  min-height: 20vh;
+  padding: 1.2rem;
+}
+.container h3 {
+  align-self: flex-start;
+}
+
+.input-book {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  padding: 2rem 1rem;
+  margin: 10px auto;
+  background-color: #ededed;
+  border-radius: 10px;
+}
+form {
+  width: 80%;
+  color: #202020;
+  font-weight: 600;
+}
+form h2 {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+form > .input > input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 5px 5px 20px 0;
+  font-size: 1rem;
+  border: 1px solid #202020;
+}
+form > .input-inline {
+  display: inline;
+  margin: 12px 12px 20px 0;
+}
+form > .input > button {
+  background-color: #345da7;
+  font-size: 1rem;
+  color: #ededed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+}
+form > .input > button:hover {
+  background-color: #628edf;
+  color: #ededed;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+.bookList {
+  padding: 0.5rem;
+  border: 3px solid #ededed;
+  border-radius: 12px;
+  margin: 0.8rem 0.2rem;
+}
+.bookList > h3 {
+  margin: 8px auto;
+}
+.progressBook {
+  padding: 0.4rem 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.finishBook {
+  padding: 1.4rem 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.container-component {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 0 1 560px;
+  padding: 8px 16px 16px 16px;
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.container-component .book {
+  display: flex;
+}
+.book .img-book {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 20px;
+}
+.book .img-book img {
+  width: 5rem;
+  object-fit: cover;
+}
+.book .meta-book {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+}
+.container-component .button-book {
+  padding: 6px;
+  margin: 6px 0;
+}
+.container-component .button-book button {
+  padding: 6px;
+  border-radius: 8px;
+}
+.container-component .button-book button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+.container-component .button-book .btn-book-hapus::before {
+  content: "Hapus buku";
+}
+.container-component .button-book .btn-book-hapus {
+  background-color: rgb(212, 75, 75);
+}
+.container-component .button-book .btn-book-selesai::before {
+  content: "Tandai selesai dibaca";
+}
+.container-component .button-book .btn-book-selesai,
+.container-component .button-book .btn-book-blmselesai {
+  background-color: #345da7;
+}
+.container-component .button-book .btn-book-blmselesai::before {
+  content: "Tandai sedang dibaca";
+}
