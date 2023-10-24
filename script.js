@@ -17,11 +17,12 @@ function addBook() {
   const id = generateId();
   const bookTitle = document.getElementById("bookTitle").value;
   const bookWriter = document.getElementById("bookWriter").value;
-  const bookYear = document.getElementById("bookYear").value;
+  const bookYear = parseInt(document.getElementById("bookYear").value);
   const bookFinish = document.getElementById("bookFinish").checked;
 
   const book = bookObject(id, bookTitle, bookWriter, bookYear, bookFinish);
   bookData.push(book);
+  console.log(bookData);
   prosessingUpdate();
 
   document.getElementById("formAddBook").reset();
