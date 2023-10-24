@@ -33,7 +33,13 @@ function generateId() {
 }
 
 function bookObject(id, bookTitle, bookWriter, bookYear, bookFinish) {
-  return { id, bookTitle, bookWriter, bookYear, bookFinish };
+  return {
+    id: id,
+    title: bookTitle,
+    author: bookWriter,
+    year: bookYear,
+    isComplete: bookFinish,
+  };
 }
 
 function deleteBook(idBook) {
@@ -46,14 +52,14 @@ function deleteBook(idBook) {
 function markAsComplete(idBook) {
   const data = findBook(idBook);
   const book = data[1];
-  book.bookFinish = true;
+  book.isComplete = true;
   prosessingUpdate();
 }
 
 function markAsUncomplete(idBook) {
   const data = findBook(idBook);
   const book = data[1];
-  book.bookFinish = false;
+  book.isComplete = false;
   prosessingUpdate();
 }
 
@@ -87,11 +93,11 @@ function displayBook(bookData) {
   containerBook.append(isiBook);
 
   const bookTitle = document.createElement("h4");
-  bookTitle.innerText = bookData.bookTitle;
+  bookTitle.innerText = bookData.title;
   const bookWriter = document.createElement("p");
-  bookWriter.innerText = bookData.bookWriter;
+  bookWriter.innerText = bookData.author;
   const bookYear = document.createElement("p");
-  bookYear.innerText = bookData.bookYear;
+  bookYear.innerText = bookData.year;
   isiBook.append(bookTitle, bookWriter, bookYear);
 
   const btnBookContainer = document.createElement("div");
@@ -106,7 +112,7 @@ function displayBook(bookData) {
   const uncompleteBook = document.querySelector(".progressBook");
   const completeBook = document.querySelector(".finishBook");
 
-  if (bookData.bookFinish) {
+  if (bookData.isComplete) {
     btnBookContainer.append(btnBookUncomplete, btnBookDelete);
     container.append(btnBookContainer);
     completeBook.append(container);
