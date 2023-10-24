@@ -23,6 +23,8 @@ function addBook() {
   const book = bookObject(id, bookTitle, bookWriter, bookYear, bookFinish);
   bookData.push(book);
   prosessingUpdate();
+
+  document.getElementById("formAddBook").reset();
 }
 
 function generateId() {
