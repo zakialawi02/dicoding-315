@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("load");
   if (checkBrowser()) {
     loadDataFromStorage();
   }
-  console.log("bookData");
-  console.log(bookData);
   prosessingUpdate();
 
   const submitForm = document.getElementById("formAddBook");
   submitForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log("grab");
     addBook();
   });
 });
@@ -26,7 +22,6 @@ function addBook() {
 
   const book = bookObject(id, bookTitle, bookWriter, bookYear, bookFinish);
   bookData.push(book);
-  saveData();
   prosessingUpdate();
 }
 
@@ -36,6 +31,36 @@ function generateId() {
 
 function bookObject(id, bookTitle, bookWriter, bookYear, bookFinish) {
   return { id, bookTitle, bookWriter, bookYear, bookFinish };
+}
+
+function deleteBook(idBook) {
+  const data = findBook(idBook);
+  const index = data[0];
+  bookData.splice(index, 1);
+  prosessingUpdate();
+}
+
+function markAsComplete(idBook) {
+  const data = findBook(idBook);
+  const book = data[1];
+  book.bookFinish = true;
+  prosessingUpdate();
+}
+
+function markAsUncomplete(idBook) {
+  const data = findBook(idBook);
+  const book = data[1];
+  book.bookFinish = false;
+  prosessingUpdate();
+}
+
+function findBook(idBook) {
+  for (let index = 0; index < bookData.length; index++) {
+    if (bookData[index].id === idBook) {
+      return [index, bookData[index]];
+    }
+  }
+  return null;
 }
 
 function displayBook(bookData) {
@@ -83,16 +108,22 @@ function displayBook(bookData) {
     container.append(btnBookContainer);
     completeBook.append(container);
 
+    btnBookUncomplete.addEventListener("click", function () {
+      markAsUncomplete(bookData.id);
+    });
     btnBookDelete.addEventListener("click", function () {
-      console.log(bookData.id);
+      deleteBook(bookData.id);
     });
   } else {
     btnBookContainer.append(btnBookComplete, btnBookDelete);
     container.append(btnBookContainer);
     uncompleteBook.append(container);
 
+    btnBookComplete.addEventListener("click", function () {
+      markAsComplete(bookData.id);
+    });
     btnBookDelete.addEventListener("click", function () {
-      console.log(bookData.id);
+      deleteBook(bookData.id);
     });
   }
 }
@@ -105,10 +136,12 @@ function empty() {
 }
 
 function prosessingUpdate() {
+  saveData();
   empty();
   for (const book of bookData) {
     displayBook(book);
   }
+  return true;
 }
 
 function checkBrowser() {

@@ -150,6 +150,7 @@ form > .input > button:hover {
   content: "Hapus buku";
 }
 .container-component .button-book .btn-book-hapus {
+  margin-left: 2px;
   background-color: rgb(212, 75, 75);
 }
 .container-component .button-book .btn-book-selesai::before {
